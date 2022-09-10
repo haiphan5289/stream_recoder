@@ -1,6 +1,7 @@
 import Foundation
 import AVFoundation
 import CocoaLumberjackSwift
+import FaceCamFW
 
 @available(iOS 13.0, *)
 class StreamerMultiCam: Streamer {

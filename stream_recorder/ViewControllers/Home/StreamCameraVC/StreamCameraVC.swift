@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import FaceCamFW
 
 class StreamCameraVC: UIViewController {
     

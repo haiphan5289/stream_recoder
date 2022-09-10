@@ -1,10 +1,11 @@
-enum CaptureState {
-    case CaptureStateSetup
-    case CaptureStateStarted
-    case CaptureStateStopped
-    case CaptureStateFailed
-    case CaptureStateCanRestart
-}
+//public enum CaptureState {
+//    case CaptureStateSetup
+//    case CaptureStateStarted
+//    case CaptureStateStopped
+//    case CaptureStateFailed
+//    case CaptureStateCanRestart
+//}
+import FaceCamFW
 
 enum CaptureStatus: Error {
     case CaptureStatusSuccess

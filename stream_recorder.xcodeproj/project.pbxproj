@@ -11,7 +11,10 @@
 		936064C228CC4123009A5819 /* ImageTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064BF28CC4122009A5819 /* ImageTransform.swift */; };
 		936064C328CC4123009A5819 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064C028CC4123009A5819 /* VideoConfig.swift */; };
 		936064C428CC4123009A5819 /* StreamerFacecam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064C128CC4123009A5819 /* StreamerFacecam.swift */; };
-		936064D228CC45EF009A5819 /* FaceCamFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936064D128CC45EF009A5819 /* FaceCamFW.framework */; };
+		936064D928CC7566009A5819 /* CheckVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936064D628CC7566009A5819 /* CheckVC.xib */; };
+		936064DA28CC7566009A5819 /* CheckVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064D728CC7566009A5819 /* CheckVM.swift */; };
+		936064DB28CC7566009A5819 /* CheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064D828CC7566009A5819 /* CheckVC.swift */; };
+		936064F828CC86EB009A5819 /* FaceCamFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936064F728CC86EB009A5819 /* FaceCamFW.framework */; };
 		A31361EE27FDF94E006CCBD5 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31361ED27FDF94E006CCBD5 /* FileService.swift */; };
 		A31361F627FDFD6A006CCBD5 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31361F527FDFD6A006CCBD5 /* ReplayKit.framework */; };
 		A31361F927FDFD6A006CCBD5 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31361F827FDFD6A006CCBD5 /* SampleHandler.swift */; };
@@ -216,7 +219,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9360647028CC322A009A5819 /* Embed Frameworks */ = {
+		936064F628CC84F7009A5819 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -246,7 +249,10 @@
 		936064BF28CC4122009A5819 /* ImageTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransform.swift; sourceTree = "<group>"; };
 		936064C028CC4123009A5819 /* VideoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConfig.swift; sourceTree = "<group>"; };
 		936064C128CC4123009A5819 /* StreamerFacecam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamerFacecam.swift; sourceTree = "<group>"; };
-		936064D128CC45EF009A5819 /* FaceCamFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FaceCamFW.framework; sourceTree = "<group>"; };
+		936064D628CC7566009A5819 /* CheckVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckVC.xib; sourceTree = "<group>"; };
+		936064D728CC7566009A5819 /* CheckVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVM.swift; sourceTree = "<group>"; };
+		936064D828CC7566009A5819 /* CheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVC.swift; sourceTree = "<group>"; };
+		936064F728CC86EB009A5819 /* FaceCamFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FaceCamFW.framework; sourceTree = "<group>"; };
 		9B0B6523E3FD5D6798117003 /* Pods-stream_recorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stream_recorder.debug.xcconfig"; path = "Target Support Files/Pods-stream_recorder/Pods-stream_recorder.debug.xcconfig"; sourceTree = "<group>"; };
 		A31361ED27FDF94E006CCBD5 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		A31361EF27FDFCB6006CCBD5 /* stream_recorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stream_recorder.entitlements; sourceTree = "<group>"; };
@@ -471,7 +477,7 @@
 				A378480D2800941E001C9EC9 /* libc++.tbd in Frameworks */,
 				A36CAB1228088D7000409441 /* DeviceGuru in Frameworks */,
 				A3784830280163DB001C9EC9 /* libcrypto.xcframework in Frameworks */,
-				936064D228CC45EF009A5819 /* FaceCamFW.framework in Frameworks */,
+				936064F828CC86EB009A5819 /* FaceCamFW.framework in Frameworks */,
 				A3342C0D280BF6C70015ACDD /* SwiftMessages in Frameworks */,
 				A3342C04280BF5CA0015ACDD /* CocoaLumberjackSwift in Frameworks */,
 				A36CAAE928085F1D00409441 /* PixelSDK in Frameworks */,
@@ -484,6 +490,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		936064D528CC7556009A5819 /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				936064D628CC7566009A5819 /* CheckVC.xib */,
+				936064D728CC7566009A5819 /* CheckVM.swift */,
+				936064D828CC7566009A5819 /* CheckVC.swift */,
+			);
+			path = Check;
+			sourceTree = "<group>";
+		};
 		A31361EC27FDF935006CCBD5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,7 +586,7 @@
 			children = (
 				A36CAB022808868500409441 /* FacecamSetup */,
 				A36CAAEB2808790200409441 /* FacecamVC.swift */,
-				936064D128CC45EF009A5819 /* FaceCamFW.framework */,
+				936064F728CC86EB009A5819 /* FaceCamFW.framework */,
 			);
 			path = FacecamVC;
 			sourceTree = "<group>";
@@ -839,6 +855,7 @@
 		A38162F727F9EF5A003E3F1A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				936064D528CC7556009A5819 /* Check */,
 				A36CAAEA280878EC00409441 /* FacecamVC */,
 				A37BE44527FF691100D07B43 /* StreamCameraVC */,
 				A390CDB327FC5B4C00CA8CC1 /* SourceListVC */,
@@ -1379,7 +1396,7 @@
 				C321940827F5EE0B003067B4 /* Resources */,
 				A313621327FDFD6A006CCBD5 /* Embed App Extensions */,
 				111A5AA1D22B08CD1070CC89 /* [CP] Embed Pods Frameworks */,
-				9360647028CC322A009A5819 /* Embed Frameworks */,
+				936064F628CC84F7009A5819 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1477,6 +1494,7 @@
 				A381630F27F9F86B003E3F1A /* WorkSans-SemiBold.ttf in Resources */,
 				A390CDE027FC951700CA8CC1 /* VideoCell.xib in Resources */,
 				A3B5C84727FB37B800BDE4F9 /* SFMono-Semibold.otf in Resources */,
+				936064D928CC7566009A5819 /* CheckVC.xib in Resources */,
 				A3636EFE27FB7FA70014844F /* PlatformCell.xib in Resources */,
 				A381633227FA22F8003E3F1A /* SettingPremiumCell.xib in Resources */,
 				A381632727FA0909003E3F1A /* HomeFaceCamCell.xib in Resources */,
@@ -1598,6 +1616,7 @@
 				A36CAAF728087CDB00409441 /* VideoRecordSlider.swift in Sources */,
 				A3F26BFE27FAF30100158F5D /* HelpVC.swift in Sources */,
 				A3342BFA280BF5300015ACDD /* StreamerSingleCam.swift in Sources */,
+				936064DA28CC7566009A5819 /* CheckVM.swift in Sources */,
 				A390CDBE27FC7E3300CA8CC1 /* StreamConfigVC.swift in Sources */,
 				A35749B7280A990300A12484 /* ProgressVideoAlert.swift in Sources */,
 				A36CAAF528087CDB00409441 /* VideoHelper.swift in Sources */,
@@ -1623,6 +1642,7 @@
 				A3B5C85227FB41BE00BDE4F9 /* CountdownService.swift in Sources */,
 				C39ED613280FB410008D54A6 /* NewBroadCollectionViewCell.swift in Sources */,
 				A390CDDB27FC831900CA8CC1 /* TriangleView.swift in Sources */,
+				936064DB28CC7566009A5819 /* CheckVC.swift in Sources */,
 				A3636EF927FB7F2F0014844F /* PlatformListVC.swift in Sources */,
 				A3342C0A280BF63F0015ACDD /* StreamerDelegate.swift in Sources */,
 				A38162D227F9E8FB003E3F1A /* IBDesignable+Ext.swift in Sources */,

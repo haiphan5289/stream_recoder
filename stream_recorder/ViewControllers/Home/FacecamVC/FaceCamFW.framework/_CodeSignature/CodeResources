@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FaceCamFW-Swift.h</key>
 		<data>
-		UblDbTv9TDGMbPje78LGpUvYOlY=
+		utEPttKvyLTiRmjzXwm4SXqaOMk=
 		</data>
 		<key>Headers/FaceCamFW.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Modules/FaceCamFW.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		wgFY+jS3eaM10GLseonVbwpDLeo=
+		hXkgP10sOJzHhGEr7IfpcBpMOhI=
 		</data>
 		<key>Modules/FaceCamFW.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/FaceCamFW.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Hp12FFr2ypl2GVvHq3TldNp0DNA=
+		W4IzIFspYZEhnpJQicxLel5cvqQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -39,7 +39,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tGle5101q3DT+ND/oKBoLXJz3lcjpOdTXH1TpCE4KC0=
+			Q3ViAIP1BXNdeSYx+kndGVJA3WkmnoZI1i6fWtnGNqo=
 			</data>
 		</dict>
 		<key>Headers/FaceCamFW.h</key>
@@ -53,7 +53,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vidm0wm3tUPKsqk63dAGHoffXfglR0mUh57q64J2Z7s=
+			iBdIU5XpxQdgiTpu0GRwGUC6dd3XztO3nhhe0Z7I4uc=
 			</data>
 		</dict>
 		<key>Modules/FaceCamFW.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			V3yVPTaN0jveDdbFdN826uAFPxU2X8f5Ub6tnrq7YF8=
+			OYvTL0PvsgfIRI2ANMC4fCHuEZll+KdioXHdt8il8sQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

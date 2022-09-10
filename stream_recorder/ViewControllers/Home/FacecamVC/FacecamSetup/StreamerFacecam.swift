@@ -10,7 +10,7 @@
 //import Toaster
 //import AVFoundation
 //
-//enum RecordFacecameState {
+//public enum RecordFacecameState {
 //    case none
 //    case setup
 //    case setuped
@@ -29,12 +29,12 @@
 //protocol ApplicationStateObserver: AnyObject {
 //    func applicationDidBecomeActive()
 //    func applicationWillResignActive()
-//    
+//
 //    func mediaServicesWereLost()
 //    func mediaServicesWereReset()
-//}
 //
-//protocol FacecameDelegate: AnyObject {
+//
+//public protocol FacecameDelegate: AnyObject {
 //    func captureStateDidChange(state: CaptureState, status: Error)
 //    func recordStateDidChange(state: RecordFacecameState, status: Error?)
 //    func photoSaved(fileUrl: URL)
@@ -44,18 +44,18 @@
 //
 //class StreamerFacecam: NSObject {
 //    weak var delegate: FacecameDelegate?
-//    
+//
 //    // AVCaptureSession
 //    var session: AVCaptureSession?
 //    var videoConfig: VideoConfig?
 //    var audioConfig: AudioConfig?
 //    var sessionQueue = DispatchQueue(label: "FacecameQueue")
-//    
+//
 //    // local video
 //    public var player: AVPlayer?
 //    public var playerItem: AVPlayerItem?
 //    public var videoOutput: AVPlayerItemVideoOutput?
-//    
+//
 //    // video
 //    private var captureDevice: AVCaptureDevice?
 //    private var videoIn: AVCaptureDeviceInput?
@@ -66,7 +66,7 @@
 //
 //    // jpeg capture
 //    private var imageOut: AVCaptureOutput?
-//    
+//
 //    // audio
 //    internal var recordDevice: AVCaptureDevice?
 //    private var audioIn: AVCaptureInput?
@@ -88,14 +88,14 @@
 //    internal var ciContext: CIContext?
 //    internal var position: AVCaptureDevice.Position = .back
 //    internal let PixelFormat_RGB = kCVPixelFormatType_32BGRA
-//    
+//
 //    internal var streamWidth: Int = 192
 //    internal var streamHeight: Int = 144
 //
 //    var postprocess: Bool {
 //        return Settings.sharedInstance.postprocess
 //    }
-//    
+//
 //    var videoOrientation: AVCaptureVideoOrientation {
 //        // CoreImage filters enabled, we will rotate video on app side, so request not rotated buffers
 //        if postprocess {
@@ -109,11 +109,11 @@
 //            }
 //        }
 //    }
-//    
+//
 //    var isWriting: Bool {
 //        return recordStatus == .started && isRecordSessionStarted
 //    }
-//    
+//
 //    func setVideoStabilizationMode(connection: AVCaptureConnection, camera: AVCaptureDevice) {
 //        let cameraName = camera.localizedName
 ////        if dynamicLogLevel == .verbose {
@@ -129,7 +129,7 @@
 ////                DLog("\(String(describing: dict[value])) \(camera.activeFormat.isVideoStabilizationModeSupported(value))")
 ////            }
 ////        }
-//        
+//
 //        let mode = Settings.sharedInstance.videoStabilizationMode
 //        if connection.isVideoStabilizationSupported, camera.activeFormat.isVideoStabilizationModeSupported(mode) {
 //            connection.preferredVideoStabilizationMode = mode
@@ -137,7 +137,7 @@
 //            DLog("\(cameraName) active stabilization mode: \(connection.activeVideoStabilizationMode.rawValue)")
 //        }
 //    }
-//    
+//
 //    func setupAudio() throws {
 //        // start audio input configuration
 //        recordDevice = AVCaptureDevice.default(for: AVMediaType.audio)
@@ -145,14 +145,14 @@
 //            DLog("streamer fail: can't open audio device")
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        do {
 //            audioIn = try AVCaptureDeviceInput(device: recordDevice!)
 //        } catch {
 //            DLog("streamer fail: can't allocate audio input: \(error)")
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        if session!.canAddInput(audioIn!) {
 //            session!.addInput(audioIn!)
 //        } else {
@@ -160,18 +160,18 @@
 //            throw StreamerError.SetupFailed
 //        }
 //        // audio input configuration completed
-//        
+//
 //        // start audio output configuration
 //        audioOut = AVCaptureAudioDataOutput()
 //        audioOut!.setSampleBufferDelegate(self, queue: sessionQueue)
-//        
+//
 //        if session!.canAddOutput(audioOut!) {
 //            session!.addOutput(audioOut!)
 //        } else {
 //            DLog("streamer fail: can't add audio output")
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        self.audioConnection = audioOut!.connection(with: AVMediaType.audio)
 //        guard self.audioConnection != nil else {
 //            DLog("streamer fail: can't allocate audio connection")
@@ -179,11 +179,11 @@
 //        }
 //        // audio output configuration completed
 //    }
-//    
+//
 //    func setCameraParams(camera: AVCaptureDevice) -> AVCaptureDevice.Format? {
 //        var activeFormat: AVCaptureDevice.Format?
 //        var formats: [AVCaptureDevice.Format] = []
-//        
+//
 //        for format in camera.formats {
 //            if !isValidFormat(format)  {
 //                continue
@@ -198,7 +198,7 @@
 //            }
 //        }
 //        DLog("\(camera.localizedName) has \(formats.count) format(s)")
-//        
+//
 //        // Try to fit requested frame rate into supported fps range
 //        for format in formats {
 //            for range in format.videoSupportedFrameRateRanges {
@@ -212,7 +212,7 @@
 //                break
 //            }
 //        }
-//        
+//
 //        // Requested frame rate is not supported by active camera, fallback to 30 fps
 //        if activeFormat == nil {
 //            for format in formats {
@@ -230,28 +230,28 @@
 //                break
 //            }
 //        }
-//        
+//
 //        guard let format = activeFormat  else {
 //            DLog("streamer fail: can't find video output format")
 //            return nil
 //        }
-//        
+//
 //        do {
 //            try camera.lockForConfiguration()
 //        } catch {
 //            DLog("streamer fail: can't lock video device for configuration: \(error)")
 //           return nil
 //        }
-//        
+//
 //        camera.activeFormat = format
 //        camera.activeVideoMinFrameDuration = CMTimeMake(value: 1, timescale: Int32(videoConfig!.fps))
 //        camera.activeVideoMaxFrameDuration = CMTimeMake(value: 1, timescale: Int32(videoConfig!.fps))
-//        
+//
 //        camera.unlockForConfiguration()
-//        
+//
 //        return format
 //    }
-//    
+//
 //    private func setupAudioSession() throws {
 //        let audioSession = AVAudioSession.sharedInstance()
 //
@@ -260,7 +260,7 @@
 //            selector: #selector(audioSessionRouteChange(notification:)),
 //            name: AVAudioSession.routeChangeNotification,
 //            object: audioSession)
-//        
+//
 //        if let inputs = audioSession.availableInputs, let preferredInput = Settings.sharedInstance.preferredInput {
 //            for input in inputs {
 //                DLog("\(input)")
@@ -271,7 +271,7 @@
 //        }
 ////        showMicInfo()
 //    }
-//    
+//
 //    private func showMicInfo() {
 //        let audioSession = AVAudioSession.sharedInstance()
 //        for input in audioSession.currentRoute.inputs {
@@ -282,7 +282,7 @@
 //            DLog("Active input: \(input), h/w sample rate: \(audioSession.sampleRate)")
 //        }
 //    }
-//    
+//
 //    private func videoSizeConfig() {
 //        if videoConfig!.portrait {
 //            streamHeight = Int(videoConfig!.videoSize.width)
@@ -296,26 +296,26 @@
 //    func setupVideoIn() throws {
 //        // start video input configuration
 //        captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
-//        
+//
 //        if captureDevice == nil {
 //            // wrong cameraID? ok, pick default one
 //            captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
 //        }
-//        
+//
 //        guard captureDevice != nil else {
 //            DLog("streamer fail: can't open camera device")
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        position = captureDevice!.position
-//        
+//
 //        do {
 //            videoIn = try AVCaptureDeviceInput(device: captureDevice!)
 //        } catch {
 //            DLog("streamer fail: can't allocate video input: \(error)")
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        if session!.canAddInput(videoIn!) {
 //            session!.addInput(videoIn!)
 //        } else {
@@ -324,7 +324,7 @@
 //        }
 //        // video input configuration completed
 //    }
-//    
+//
 //    func setupVideoOut() throws {
 //        guard let _ = setCameraParams(camera: captureDevice!) else {
 //            throw StreamerError.SetupFailed
@@ -334,14 +334,14 @@
 //        videoOut.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String) : NSNumber(value: PixelFormat_YUV)]
 //        videoOut.alwaysDiscardsLateVideoFrames = true
 //        videoOut.setSampleBufferDelegate(self, queue: sessionQueue)
-//        
+//
 //        if session!.canAddOutput(videoOut) {
 //            session!.addOutput(videoOut)
 //        } else {
 //            DLog("streamer fail: can't add video output")
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        guard let videoConnection = videoOut.connection(with: AVMediaType.video) else {
 //            DLog("streamer fail: can't allocate video connection")
 //            throw StreamerError.SetupFailed
@@ -349,16 +349,16 @@
 //        videoConnection.videoOrientation = self.videoOrientation
 //
 //        setVideoStabilizationMode(connection: videoConnection, camera: captureDevice!)
-//        
+//
 //        self.videoOut = videoOut
 //        self.videoConnection = videoConnection
-//        
+//
 //        if postprocess {
 //            let videoSize = CMVideoDimensions(width: Int32(streamWidth), height: Int32(streamHeight))
 //            transform = ImageTransform(size: videoSize)
 //            transform?.portraitVideo = videoConfig!.portrait
 ////            transform?.orientation = orientation
-//            
+//
 //            if pipTransform == nil {
 //                pipTransform = ImageTransform(size: videoSize, scale: 0.5)
 //                pipTransform?.alignX = 1.0
@@ -369,7 +369,7 @@
 //        }
 //        // video output configuration completed
 //    }
-//    
+//
 //    func updatePipTransform(frame: CGRect, parent: CGRect) {
 //        let videoSize = CMVideoDimensions(width: Int32(streamWidth), height: Int32(streamHeight))
 //        var scale: CGFloat = 0.5
@@ -395,7 +395,7 @@
 //        pipTransform?.alignY = ((parent.height - alignY) * 100 / parent.height) / 100
 //        pipTransform?.portraitVideo = videoConfig!.portrait
 //    }
-//    
+//
 //    // MARK: mp4 record
 //    func startRecord() {
 //        self.recordStatus = .setup
@@ -413,7 +413,7 @@
 //                df.dateFormat = "yyyyMMddHHmmss"
 //                let fileName = "MVI_" + df.string(from: Date()) + ".mov"
 //                let fileUrl = documents.appendingPathComponent(fileName)
-//                
+//
 //                try self.setupFileWriter(outputURL: fileUrl)
 //                self.recordStatus = .setuped
 //                self.delegate?.recordStateDidChange(state: .setuped, status: nil)
@@ -428,60 +428,60 @@
 //
 //    func setupFileWriter(outputURL: URL) throws {
 //        fileWriter = try AVAssetWriter(outputURL: outputURL, fileType: AVFileType.mov)
-//        
+//
 //        var width  = videoConfig!.videoSize.width
 //        var height = videoConfig!.videoSize.height
-//        
+//
 //        if videoConfig!.portrait {
 //            width  = videoConfig!.videoSize.height
 //            height = videoConfig!.videoSize.width
 //        }
-//        
+//
 //        let videoCompressionProps = [AVVideoAverageBitRateKey:Int(videoConfig!.bitrate)] as [String : Any]
-//        
+//
 //        var videoCodec = AVVideoCodecType.h264
 //        if #available (iOS 11.0, *) {
 //            if videoConfig!.type == kCMVideoCodecType_HEVC {
 //                videoCodec = AVVideoCodecType.hevc
 //            }
 //        }
-//        
+//
 //        let videoOutputSettings = [AVVideoCodecKey:videoCodec,
 //                                   AVVideoCompressionPropertiesKey:videoCompressionProps,
 //                                   AVVideoWidthKey:Int(width),
 //                                   AVVideoHeightKey:Int(height)] as [String : Any]
-//        
+//
 //        let audioBitrate = audioConfig!.bitrate > 0 ? audioConfig!.bitrate : 64_000
 //        let audioOutputSettings = [AVFormatIDKey:Int(kAudioFormatMPEG4AAC),
 //                                   AVNumberOfChannelsKey:1,
 //                                   AVSampleRateKey:44_100,
 //                                   AVEncoderBitRateKey:audioBitrate] as [String : Any]
-//        
+//
 //        videoInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: videoOutputSettings)
 //        audioInput = AVAssetWriterInput(mediaType: AVMediaType.audio, outputSettings: audioOutputSettings)
-//        
+//
 //        guard fileWriter != nil, videoInput != nil, audioInput != nil else {
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        videoInput!.expectsMediaDataInRealTime = true
 //        audioInput!.expectsMediaDataInRealTime = true
-//        
+//
 //        if postprocess {
 //            let sourcePixelBufferAttributesDictionary : [String: AnyObject] = [
 //                kCVPixelBufferPixelFormatTypeKey as String: NSNumber(value: PixelFormat_RGB),
 //                kCVPixelBufferWidthKey as String: NSNumber(value: width),
 //                kCVPixelBufferHeightKey as String: NSNumber(value: height)
 //            ]
-//            
+//
 //            pixelBufferInput = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: videoInput!,
 //                                                                    sourcePixelBufferAttributes: sourcePixelBufferAttributesDictionary)
 //        }
-//        
+//
 //        guard fileWriter!.canAdd(videoInput!), fileWriter!.canAdd(audioInput!) else {
 //            throw StreamerError.SetupFailed
 //        }
-//        
+//
 //        fileWriter!.add(videoInput!)
 //        fileWriter!.add(audioInput!)
 //    }
@@ -496,7 +496,7 @@
 //            self.stopWriting(restart: restart, cancel: cancel)
 //        }
 //    }
-//    
+//
 //    func stopWriting(restart: Bool, cancel: Bool) {
 //        DLog("stop writing, is status: \(recordStatus) is isRecordSessionStarted: \(isRecordSessionStarted)")
 //        if recordStatus == .stopped || recordStatus == .failed { return }
@@ -517,12 +517,12 @@
 //            releaseFileWriter()
 //        }
 //    }
-//    
+//
 //    func releaseFileWriterAndRestart() {
 //        releaseFileWriter()
 //        startRecord()
 //    }
-//    
+//
 //    func releaseFileWriter() {
 //        DLog("releaseFileWriter")
 //        if (isRecordSessionStarted) {
@@ -543,7 +543,7 @@
 //        videoInput = nil
 //        audioInput = nil
 //    }
-//    
+//
 //    // MARK: Capture setup
 //    func startCapture(startAudio: Bool, startVideo: Bool) throws {
 //        guard delegate != nil else {
@@ -565,7 +565,7 @@
 //                throw StreamerError.SetupFailed
 //            }
 //        }
-//        
+//
 //        sessionQueue.async {
 //            do {
 //                guard self.session == nil else {
@@ -573,17 +573,17 @@
 //                    return
 //                }
 //                DLog("startCapture (async)")
-//                
+//
 ////                self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepInitial)
-//                
+//
 //                // IMPORTANT NOTE:
-//                
+//
 //                // The way applications handle audio is through the use of audio sessions. When your app is launched, behind the scenes it is provided with a singleton instance of an AVAudioSession. Your app use the shared instance of AVAudioSession to configure the behavior of audio in the application.
-//                
+//
 //                // https://developer.apple.com/documentation/avfoundation/avaudiosession
-//                
+//
 //                // Before configuring AVCaptureSession app MUST configure and activate audio session. Refer to AppDelegate.swift for details.
-//                
+//
 //                // ===============
 //
 //
@@ -595,22 +595,22 @@
 //                self.session?.automaticallyConfiguresApplicationAudioSession = false
 //
 //                // Raw audio and video will be delivered to app in form of CMSampleBuffer. Refer to func captureOutput for details.
-//                
+//
 //                if startAudio {
 ////                    self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepAudioSession)
-//                    
+//
 //                    // Prerequisites: AVAudioSession is active.
 //                    // Refer to AppDelegate.swift / startAudio() for details.
 //                    try self.setupAudioSession()
-//                    
+//
 ////                    self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepAudio)
 //                    try self.setupAudio()
 //                }
-//                
+//
 //                if startVideo {
 //                    if self.postprocess {
 ////                        self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepFilters)
-//                        
+//
 //                        let options = [CIContextOption.workingColorSpace: NSNull(),
 //                                       CIContextOption.outputColorSpace: NSNull(),
 //                                       CIContextOption.useSoftwareRenderer: NSNumber(value: false)]
@@ -620,26 +620,26 @@
 //                            return
 //                        }
 //                    }
-//                    
+//
 //                    self.videoSizeConfig()
-//                    
+//
 ////                    self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepVideoIn)
 //                    try self.setupVideoIn()
-//                    
+//
 ////                    self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepVideoOut)
 //                    try self.setupVideoOut()
-//                    
+//
 ////                    self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepStillImage)
 //                    try self.setupStillImage()
 //                }
-//                
+//
 ////                self.notifySetupProgress(step: CaptureStatus.CaptureStatusStepSessionStart)
-//                
+//
 //                // Only setup observers and start the session running if setup succeeded.
 //                self.registerForNotifications()
 //                self.session!.startRunning()
 //                // Wait for AVCaptureSessionDidStartRunning notification.
-//                
+//
 //            } catch {
 //                DLog("can't start capture: \(error)")
 //                self.delegate?.captureStateDidChange(state: CaptureState.CaptureStateFailed, status: error)
@@ -667,20 +667,20 @@
 //            throw StreamerError.SetupFailed
 //        }
 //    }
-//    
+//
 //    func stopCapture() {
 //        DLog("stopCapture")
-//        
+//
 //        sessionQueue.async {
 //            self.stopRecord(restart: false, cancel: true)
 //            self.releaseCapture()
 //        }
 //    }
-//    
+//
 //    func releaseCapture() {
 //        // detach compression sessions and mp4 recorder
 //        videoOut?.setSampleBufferDelegate(nil, queue: nil)
-//        
+//
 //        videoConnection = nil
 //        videoIn = nil
 //        videoOut = nil
@@ -691,25 +691,25 @@
 //        session = nil
 //        transform = nil
 //        pipTransform = nil
-//        
+//
 //        player = nil
 //        playerItem = nil
 //        videoOutput = nil
 //    }
-//    
+//
 //    func changeStablizationMode() {
 //        setVideoStabilizationMode(connection: self.videoConnection!, camera: captureDevice!)
 //    }
-//    
+//
 //    func changeCamera() {
 //        sessionQueue.async {
 //            guard self.captureDevice != nil, self.videoIn != nil, self.videoOut != nil else {
 //                return
 //            }
-//            
+//
 //            let preferredPosition:AVCaptureDevice.Position  = (self.captureDevice!.position == .back) ? .front : .back
 //            let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes:[.builtInWideAngleCamera], mediaType: .video, position: preferredPosition)
-//            
+//
 //            if discoverySession.devices.count == 0 {
 //                DLog("Not found camera")
 //                return
@@ -717,18 +717,18 @@
 //            self.attachVideoDevice(videoDevice: discoverySession.devices.first!)
 //        }
 //    }
-//    
+//
 //    private func attachVideoDevice(videoDevice: AVCaptureDevice) {
 //        var newFormat: AVCaptureDevice.Format?
 //        for format in videoDevice.formats {
-//            
+//
 //            if CMFormatDescriptionGetMediaType(format.formatDescription) != kCMMediaType_Video {
 //                continue
 //            }
 //            if CMFormatDescriptionGetMediaSubType(format.formatDescription) != self.PixelFormat_YUV {
 //                continue
 //            }
-//            
+//
 //            let resolution = CMVideoFormatDescriptionGetDimensions(format.formatDescription)
 //            if resolution.width == self.videoConfig!.videoSize.width, resolution.height == self.videoConfig!.videoSize.height {
 //                for range in format.videoSupportedFrameRateRanges {
@@ -747,11 +747,11 @@
 ////            self.delegate?.notification(notification: StreamerNotification.ChangeCameraFailed)
 //            return
 //        }
-//        
+//
 //        do {
 //            try videoDevice.lockForConfiguration()
 //            videoDevice.activeFormat = newFormat!
-//            
+//
 //            // https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html
 //            // If you change the focus mode settings, you can return them to the default configuration as follows:
 //            if videoDevice.isFocusModeSupported(.continuousAutoFocus) {
@@ -762,23 +762,23 @@
 //                //DLog("reset focusMode")
 //                videoDevice.focusMode = .continuousAutoFocus
 //            }
-//            
+//
 //            videoDevice.unlockForConfiguration()
-//            
+//
 //            self.session?.beginConfiguration()
 //            self.session?.removeInput(self.videoIn!)
-//            
+//
 //            self.captureDevice = videoDevice
 //            self.position = self.captureDevice!.position
-//            
+//
 //            self.videoIn = try AVCaptureDeviceInput(device: self.captureDevice!)
-//            
+//
 //            if self.session!.canAddInput(self.videoIn!) {
 //                self.session?.addInput(self.videoIn!)
 //            } else {
 //                throw StreamerError.SetupFailed
 //            }
-//            
+//
 //            guard let videoConnection = self.videoOut!.connection(with: AVMediaType.video) else {
 //                DLog("streamer fail: can't allocate video connection")
 //                throw StreamerError.SetupFailed
@@ -786,42 +786,42 @@
 //            videoConnection.videoOrientation = self.videoOrientation
 //            self.videoConnection = videoConnection
 //            self.setVideoStabilizationMode(connection: self.videoConnection!, camera: self.captureDevice!)
-//            
+//
 //            self.session?.commitConfiguration()
-//            
+//
 //            // On iOS, the receiver's activeVideoMinFrameDuration resets to its default value if receiver's activeFormat changes; Should first change activeFormat, then set fps
 //            try self.captureDevice!.lockForConfiguration()
 //            self.captureDevice!.activeVideoMinFrameDuration = CMTimeMake(value: 1, timescale: Int32(self.videoConfig!.fps))
 //            self.captureDevice!.activeVideoMaxFrameDuration = CMTimeMake(value: 1, timescale: Int32(self.videoConfig!.fps))
 //            self.captureDevice!.unlockForConfiguration()
-//            
+//
 //        } catch {
 //            DLog("can't change camera: \(error)")
 //            self.delegate?.captureStateDidChange(state: CaptureState.CaptureStateFailed, status: error)
 //        }
-//        
+//
 ////        self.delegate?.notification(notification: StreamerNotification.ActiveCameraDidChange)
 //    }
 //
 //    // MARK: Live rotation
 //    private func rotateAndEncode(sampleBuffer: CMSampleBuffer) {
-//        
+//
 //        let outputOptions = [kCVPixelBufferOpenGLESCompatibilityKey as String: NSNumber(value: true),
 //                             kCVPixelBufferIOSurfacePropertiesKey as String: [:]] as [String : Any]
-//        
+//
 //        var outputBuffer: CVPixelBuffer? = nil
-//        
+//
 //        let status: CVReturn = CVPixelBufferCreate(kCFAllocatorDefault,
 //                                                   streamWidth, streamHeight,
 //                                                   PixelFormat_RGB,
 //                                                   outputOptions as CFDictionary?,
 //                                                   &outputBuffer)
-//        
+//
 //        guard status == kCVReturnSuccess, outputBuffer != nil else {
 //            DLog("error in CVPixelBufferCreate")
 //            return
 //        }
-//        
+//
 ////        if videoConfig?.portrait == false && (orientation == .portrait || orientation == .portraitUpsideDown) {
 ////            pipTransform?.alignX = (1.0 + CGFloat(streamHeight)/CGFloat(streamWidth) / 3.0) / 2.0
 ////        } else if videoConfig?.portrait == true && (orientation == .landscapeLeft || orientation == .landscapeRight) {
@@ -830,9 +830,9 @@
 ////            pipTransform?.alignX = 1.0
 ////            pipTransform?.alignY = 0.0
 ////        }
-//        
+//
 //        let sampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-//        
+//
 //        let sourceBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
 //        var useMirrored = false
 //        if let device = captureDevice, device.position == .front {
@@ -853,23 +853,23 @@
 //            pipTransform?.orientation = orientation
 //        }
 ////        transform?.orientation = orientation
-//       
+//
 //        let sourceImage = CIImage(cvPixelBuffer: sourceBuffer, options: [CIImageOption.colorSpace: NSNull()])
-//        
+//
 //        var outputImage: CIImage = sourceImage
 //        let bounds = CGRect(x: 0, y: 0, width: streamWidth, height: streamHeight)
 //        guard let pipMatrix = pipTransform?.getMatrix(extent: bounds, mirrored: useMirrored, flipped: true) else {
 //            DLog("Failed to get transformation")
 //            return
 //        }
-//       
+//
 //        outputImage = outputImage.transformed(by: pipMatrix)
-//       
+//
 //        var captureImage: CIImage?
 //        if let img = playerCaptureImage() {
 //            captureImage = img.resizeCI(scaleSize: CGSize(width: streamWidth, height: streamHeight))
 //        }
-//        
+//
 //        if let context = ciContext {
 //            // merge two ciimage
 //            if let captureImage = captureImage {
@@ -881,7 +881,7 @@
 //            } else {
 //                context.render(outputImage, to: outputBuffer!, bounds: outputImage.extent, colorSpace: nil)
 //            }
-//            
+//
 //            DispatchQueue.main.async {
 //                if let captureImage = captureImage {
 //                    self.delegate?.didOutputCGImage(outputImage: context.createCGImage(captureImage, from: captureImage.extent), pipImage: context.createCGImage(outputImage, from: outputImage.extent))
@@ -889,7 +889,7 @@
 //                    self.delegate?.didOutputCGImage(outputImage: nil, pipImage: context.createCGImage(outputImage, from: outputImage.extent))
 //                }
 //            }
-//            
+//
 //            if isWriting, videoInput?.isReadyForMoreMediaData ?? false {
 ////                DLog("appendSampleBuffer video")
 //                let success = pixelBufferInput?.append(outputBuffer!, withPresentationTime:sampleTime) ?? false
@@ -899,19 +899,19 @@
 //            }
 //        }
 //    }
-//    
+//
 //    func todayString() -> String {
 //        let date = Date()
 //        let calender = Calendar.current
 //        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-//        
+//
 //        let year = components.year
 //        let month = components.month
 //        let day = components.day
 //        let hour = components.hour
 //        let minute = components.minute
 //        let second = components.second
-//        
+//
 //        return String(year!) + "-" + String(month!) + "-" + String(day!) + " " + String(hour!)  + ":" + String(minute!) + ":" +  String(second!)
 //    }
 //}
@@ -920,47 +920,47 @@
 //extension StreamerFacecam {
 //    internal func registerForNotifications() {
 //        let nc = NotificationCenter.default
-//        
+//
 //        nc.addObserver(
 //            self,
 //            selector: #selector(sessionDidStartRunning(notification:)),
 //            name: NSNotification.Name.AVCaptureSessionDidStartRunning,
 //            object: session)
-//        
+//
 //        nc.addObserver(
 //            self,
 //            selector: #selector(sessionDidStopRunning(notification:)),
 //            name: NSNotification.Name.AVCaptureSessionDidStopRunning,
 //            object: session)
-//        
+//
 //        nc.addObserver(
 //            self,
 //            selector: #selector(sessionRuntimeError(notification:)),
 //            name: NSNotification.Name.AVCaptureSessionRuntimeError,
 //            object: session)
-//        
+//
 //        nc.addObserver(
 //            self,
 //            selector: #selector(sessionWasInterrupted(notification:)),
 //            name: NSNotification.Name.AVCaptureSessionWasInterrupted,
 //            object: session)
-//        
+//
 //        nc.addObserver(
 //            self,
 //            selector: #selector(sessionInterruptionEnded(notification:)),
 //            name: NSNotification.Name.AVCaptureSessionInterruptionEnded,
 //            object: session)
 //    }
-//    
+//
 //    @objc private func sessionDidStartRunning(notification: Notification) {
 //        DLog("AVCaptureSessionDidStartRunning")
 //        delegate?.captureStateDidChange(state: CaptureState.CaptureStateStarted, status: CaptureStatus.CaptureStatusSuccess)
 //    }
-//    
+//
 //    @objc private func sessionDidStopRunning(notification: Notification) {
 //        DLog("AVCaptureSessionDidStopRunning")
 //    }
-//    
+//
 //    @objc private func sessionRuntimeError(notification: Notification) {
 //        guard let error = notification.userInfo?[AVCaptureSessionErrorKey] as? AVError else {
 //            return
@@ -968,15 +968,15 @@
 //        DLog("AVCaptureSessionRuntimeError: \(error)")
 //        delegate?.captureStateDidChange(state: CaptureState.CaptureStateFailed, status: CaptureStatus.CaptureStatusErrorCaptureSession)
 //    }
-//    
+//
 //    @objc private func sessionWasInterrupted(notification: Notification) {
 //        if let userInfoValue = notification.userInfo?[AVCaptureSessionInterruptionReasonKey] as AnyObject?, let reasonIntegerValue = userInfoValue.integerValue, let reason = AVCaptureSession.InterruptionReason(rawValue: reasonIntegerValue) {
 //            DLog("AVCaptureSessionWasInterrupted \(reason)")
-//            
+//
 //            if reason == .videoDeviceNotAvailableInBackground {
 //                return // Session will be stopped by Larix app when it goes to background, ignore notification
 //            }
-//            
+//
 //            var status = CaptureStatus.CaptureStatusErrorSessionWasInterrupted // Unknown error
 //            if reason == .audioDeviceInUseByAnotherClient {
 //                status = CaptureStatus.CaptureStatusErrorMicInUse
@@ -988,53 +988,53 @@
 //            delegate?.captureStateDidChange(state: CaptureState.CaptureStateFailed, status: status)
 //        }
 //    }
-//    
+//
 //    @objc private func sessionInterruptionEnded(notification: Notification) {
 //        DLog("AVCaptureSessionInterruptionEnded")
 //        delegate?.captureStateDidChange(state: CaptureState.CaptureStateCanRestart, status: CaptureStatus.CaptureStatusSuccess)
 //    }
-//    
+//
 //    @objc private func audioSessionRouteChange(notification: Notification) {
-//        
+//
 //        if let value = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber, let routeChangeReason = AVAudioSession.RouteChangeReason(rawValue: UInt(value.intValue)) {
-//            
+//
 //            if let routeChangePreviousRoute = notification.userInfo?[AVAudioSessionRouteChangePreviousRouteKey] as? AVAudioSessionRouteDescription {
 //                DLog("\(#function) routeChangePreviousRoute: \(routeChangePreviousRoute)")
 //            }
-//            
+//
 //            switch routeChangeReason {
-//                
+//
 //            case AVAudioSession.RouteChangeReason.unknown:
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonUnknown")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.newDeviceAvailable:
 //                // e.g. a headset was added or removed
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonNewDeviceAvailable")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.oldDeviceUnavailable:
 //                // e.g. a headset was added or removed
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonOldDeviceUnavailable")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.categoryChange:
 //                // called at start - also when other audio wants to play
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonCategoryChange")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.override:
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonOverride")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.wakeFromSleep:
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonWakeFromSleep")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.noSuitableRouteForCategory:
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonNoSuitableRouteForCategory")
-//                
+//
 //            case AVAudioSession.RouteChangeReason.routeConfigurationChange:
 //                DLog("\(#function) routeChangeReason: AVAudioSessionRouteChangeReasonRouteConfigurationChange")
-//                
+//
 //            default:
 //                break
 //            }
-//            
+//
 //            showMicInfo()
 //        }
 //    }
@@ -1044,12 +1044,12 @@
 //// MARK: AVCaptureAudioDataOutputSampleBufferDelegate
 //extension StreamerFacecam: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
 //    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-//        
+//
 //        guard CMSampleBufferDataIsReady(sampleBuffer) else {
 //            DLog("sample buffer is not ready, skipping sample")
 //            return
 //        }
-//        
+//
 //        if let videoDataOutput = output as? AVCaptureVideoDataOutput {
 //            checkRecording(sampleBuffer: sampleBuffer)
 //            processVideoSampleBuffer(sampleBuffer, fromOutput: videoDataOutput)
@@ -1057,7 +1057,7 @@
 //            processsAudioSampleBuffer(sampleBuffer, fromOutput: audioDataOutput)
 //        }
 //    }
-//    
+//
 //    func checkRecording(sampleBuffer: CMSampleBuffer) {
 //        if recordStatus != .setuped && recordStatus != .started { return }
 //        if fileWriter?.status == AVAssetWriter.Status.failed {
@@ -1080,13 +1080,13 @@
 //            }
 //        }
 //    }
-//    
+//
 //    func processVideoSampleBuffer(_ sampleBuffer: CMSampleBuffer, fromOutput videoDataOutput: AVCaptureVideoDataOutput) {
 //        if videoDataOutput != videoOut {
 //            return
 //        }
 //        //DLog("didOutput sampleBuffer: video \(DispatchTime.now())")
-//        
+//
 //        // apply CoreImage filters to video; if postprocessing is not required, then just pass buffer directly to encoder and mp4 writer
 //        if postprocess {
 //            // rotateAndEncode will also send frame to mp4 writer
@@ -1101,7 +1101,7 @@
 //            }
 //        }
 //    }
-//    
+//
 //    func processsAudioSampleBuffer(_ sampleBuffer: CMSampleBuffer, fromOutput audioDataOutput: AVCaptureAudioDataOutput) {
 //        if isWriting, audioInput?.isReadyForMoreMediaData ?? false {
 ////            DLog("appendSampleBuffer audio \(DispatchTime.now())")
@@ -1123,7 +1123,7 @@
 //                df.dateFormat = "yyyyMMddHHmmss"
 //                let fileName = "PHOTO_" + df.string(from: Date()) + ".jpg"
 //                let fileUrl = documents.appendingPathComponent(fileName)
-//                
+//
 //                try imageData.write(to: fileUrl, options: .atomic)
 //                self.delegate?.photoSaved(fileUrl: fileUrl)
 //                DLog("save photo to \(fileUrl.absoluteString)")
@@ -1151,7 +1151,7 @@
 //        self.player = player
 //        self.videoOutput = videoOutput
 //    }
-//    
+//
 //    func playerCaptureImage() -> CIImage? {
 //        var image: CIImage? = nil
 //        if let currentTime = player?.currentItem?.currentTime(),

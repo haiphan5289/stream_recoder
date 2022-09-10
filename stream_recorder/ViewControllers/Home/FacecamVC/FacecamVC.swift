@@ -58,7 +58,6 @@ class FacecamVC: UIViewController {
     // MARK: StreamViewController state transition
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.mainView = self
         
@@ -175,7 +174,10 @@ class FacecamVC: UIViewController {
             streamer?.videoConfig = Settings.sharedInstance.videoConfig
             streamer?.audioConfig = Settings.sharedInstance.audioConfig
             initVideo()
-            try streamer?.startCapture(preferredInput: Settings.sharedInstance.preferredInput, mode: Settings.sharedInstance.videoStabilizationMode, startAudio: true, startVideo: true)
+            try streamer?.startCapture(preferredInput: Settings.sharedInstance.preferredInput,
+                                       mode: Settings.sharedInstance.videoStabilizationMode,
+                                       startAudio: true,
+                                       startVideo: true)
         } catch {
             DLog("can't start capture: \(error.localizedDescription)")
         }
@@ -675,150 +677,121 @@ extension FacecamVC: ApplicationStateObserver {
     }
 }
 
-//extension FacecamVC: StreamerFacecamManagerDelegate {
-//    func captureStateDidChange(state: CaptureState, status: Error) {
-//        <#code#>
-//    }
-//
-//
-//
-//    func photoSaved(fileUrl: URL) {
-//        let dest = Settings.sharedInstance.recordStorage
-////        cloudUtils.movePhoto(fileUrl: fileUrl, to: dest)
-//        if dest == .local {
-//            DispatchQueue.main.async {
-//                Toast(text: String.localizedStringWithFormat(NSLocalizedString("%@ saved to app's documents folder.", comment: ""), fileUrl.lastPathComponent), duration: Delay.short).show()
-//            }
-//        }
-//    }
-//
-//    func videoSaved(fileUrl: URL) {
-//        videoRecordURL = fileUrl
-////        let dest = Settings.sharedInstance.recordStorage
-////        cloudUtils.moveVideo(fileUrl: fileUrl, to: dest)
-//    }
-//
-//    func didOutputCGImage(outputImage: CGImage?, pipImage: CGImage?) {
-//        if videoRangeSlider.isRecording,
-//           let seconds = streamer?.playerItem?.currentTime().seconds {
-//            videoRangeSlider.updateProgressIndicator(seconds: seconds)
-//        }
-//        if let outputImage = outputImage {
-//            fullLayerImage.currentCGImage = outputImage
-//            let isVideoPortal = outputImage.width < outputImage.height
-//            if isAdjustPipPos != isVideoPortal {
-//                isAdjustPipPos = isVideoPortal
-////                if outputImage.width < outputImage.height {
-////                    dragZoneView.frame = CGRect(x: 0, y: 0, width: CGFloat(outputImage.width) * (fullLayerImage.frame.height / CGFloat(outputImage.height)), height: fullLayerImage.frame.height)
-////                    dragZoneView.center = fullLayerImage.center
-////                } else {
-////                    dragZoneView.frame = fullLayerImage.bounds
-////                }
-//                resizableFrame = nil
-////                adjustPipPreviewPosition()
-//            }
-//        }
-//        if let pipImage = pipImage {
-//            pipLayerImage.currentCGImage = pipImage
-//        }
-//    }
-//
-//    func recordStateDidChange(state: RecordFacecameState, status: Error?) {
-//        DispatchQueue.main.async {
-//            switch state {
-//                case .setup:
-////                    SwiftOverlays.showBlockingWaitOverlayWithText("Start record...")
-//                    self.recordButtonUI(state: 2)
-//                    break
-//                case .setuped:
-//                    break
-//                case .started:
-////                    SwiftOverlays.removeAllBlockingOverlays()
-//                    self.videoRangeSlider.isRecording = true
-//                    self.streamer?.player?.play()
-//                    break
-//                case .stop, .stopByCancel:
-////                    SwiftOverlays.showBlockingWaitOverlayWithText("Stop record...")
-//                    if self.videoRangeSlider.isRecording {
-//                        self.recordButtonUI(state: state == .stop ? 3 : 0)
-//                    }
-//                    self.videoRangeSlider.isRecording = false
-//                    self.streamer?.player?.pause()
-//                    break
-//                case .stopped:
-////                    SwiftOverlays.removeAllBlockingOverlays()
-//                    break
-//                case .failed:
-//                    self.recordButtonUI(state: 0)
-////                    SwiftOverlays.removeAllBlockingOverlays()
-//                    DLog(status?.localizedDescription ?? "")
-//                    Toast(text: "Record failed").show()
-//                    break
-//                case .none:
-//                    break
-//            }
-//        }
-//    }
-//
-//    // Method may be called on a background thread. Move UI update code inside the main queue.
-////    func captureStateDidChange(state: CaptureState, status: Error) {
-////        DispatchQueue.main.async {
-////            self.onCaptureStateChange(state: state, status: status)
-////        }
-////    }
-//
-//    func onCaptureStateChange(state: CaptureState, status: Error) {
-//        //DLog("captureStateDidChange: \(state) \(status.localizedDescription)")
-//
-//        switch (state) {
-//        case .CaptureStateStarted:
-//            setupPreviews()
-//
-//        case .CaptureStateFailed:
-//            stopCapture()
-//            removePreview()
-//
-//            showStatusMessage(message: "An error occured with camera")
-//
-//        case .CaptureStateCanRestart:
-//            showStatusMessage(message: String.localizedStringWithFormat(NSLocalizedString("You can try to restart capture now.", comment: ""), status.localizedDescription))
-//
-//        case .CaptureStateSetup:
-//            DLog(status.localizedDescription)
-//            //showStatusMessage(message: status.localizedDescription)
-//
-//        default: break
-//        }
-//    }
-//}
 extension FacecamVC: StreamerFacecamManagerDelegate {
-    func captureStateDidChange2(state: CaptureState, status: Error) {
-        
-    }
-    
-    func captureStateDidChange32(state: CaptureState, status: Error) {
-        
-    }
-    
-    
-    func recordStateDidChange(state: RecordFacecameState, status: Error?) {
-        
+    func showToast(text: String) {
+        Toast(text: text).show()
     }
     
     func photoSaved(fileUrl: URL) {
-        
+        let dest = Settings.sharedInstance.recordStorage
+//        cloudUtils.movePhoto(fileUrl: fileUrl, to: dest)
+        if dest == .local {
+            DispatchQueue.main.async {
+                Toast(text: String.localizedStringWithFormat(NSLocalizedString("%@ saved to app's documents folder.", comment: ""), fileUrl.lastPathComponent), duration: Delay.short).show()
+            }
+        }
     }
     
     func videoSaved(fileUrl: URL) {
-        
+        videoRecordURL = fileUrl
+//        let dest = Settings.sharedInstance.recordStorage
+//        cloudUtils.moveVideo(fileUrl: fileUrl, to: dest)
     }
     
     func didOutputCGImage(outputImage: CGImage?, pipImage: CGImage?) {
-        
+        if videoRangeSlider.isRecording,
+           let seconds = streamer?.playerItem?.currentTime().seconds {
+            videoRangeSlider.updateProgressIndicator(seconds: seconds)
+        }
+        if let outputImage = outputImage {
+            fullLayerImage.currentCGImage = outputImage
+            let isVideoPortal = outputImage.width < outputImage.height
+            if isAdjustPipPos != isVideoPortal {
+                isAdjustPipPos = isVideoPortal
+//                if outputImage.width < outputImage.height {
+//                    dragZoneView.frame = CGRect(x: 0, y: 0, width: CGFloat(outputImage.width) * (fullLayerImage.frame.height / CGFloat(outputImage.height)), height: fullLayerImage.frame.height)
+//                    dragZoneView.center = fullLayerImage.center
+//                } else {
+//                    dragZoneView.frame = fullLayerImage.bounds
+//                }
+                resizableFrame = nil
+//                adjustPipPreviewPosition()
+            }
+        }
+        if let pipImage = pipImage {
+            pipLayerImage.currentCGImage = pipImage
+        }
     }
     
+    func recordStateDidChange(state: RecordFacecameState, status: Error?) {
+        DispatchQueue.main.async {
+            switch state {
+                case .setup:
+//                    SwiftOverlays.showBlockingWaitOverlayWithText("Start record...")
+                    self.recordButtonUI(state: 2)
+                    break
+                case .setuped:
+                    break
+                case .started:
+//                    SwiftOverlays.removeAllBlockingOverlays()
+                    self.videoRangeSlider.isRecording = true
+                    self.streamer?.player?.play()
+                    break
+                case .stop, .stopByCancel:
+//                    SwiftOverlays.showBlockingWaitOverlayWithText("Stop record...")
+                    if self.videoRangeSlider.isRecording {
+                        self.recordButtonUI(state: state == .stop ? 3 : 0)
+                    }
+                    self.videoRangeSlider.isRecording = false
+                    self.streamer?.player?.pause()
+                    break
+                case .stopped:
+//                    SwiftOverlays.removeAllBlockingOverlays()
+                    break
+                case .failed:
+                    self.recordButtonUI(state: 0)
+//                    SwiftOverlays.removeAllBlockingOverlays()
+                    DLog(status?.localizedDescription ?? "")
+                    Toast(text: "Record failed").show()
+                    break
+                case .none:
+                    break
+            }
+        }
+    }
     
+    // Method may be called on a background thread. Move UI update code inside the main queue.
+    func captureStateDidChange(state: CaptureState, status: Error) {
+        DispatchQueue.main.async {
+            self.onCaptureStateChange(state: state, status: status)
+        }
+    }
+    
+    func onCaptureStateChange(state: CaptureState, status: Error) {
+        //DLog("captureStateDidChange: \(state) \(status.localizedDescription)")
+        
+        switch (state) {
+        case .CaptureStateStarted:
+            setupPreviews()
+            
+        case .CaptureStateFailed:
+            stopCapture()
+            removePreview()
+            
+            showStatusMessage(message: "An error occured with camera")
+            
+        case .CaptureStateCanRestart:
+            showStatusMessage(message: String.localizedStringWithFormat(NSLocalizedString("You can try to restart capture now.", comment: ""), status.localizedDescription))
+            
+        case .CaptureStateSetup:
+            DLog(status.localizedDescription)
+            //showStatusMessage(message: status.localizedDescription)
+            
+        default: break
+        }
+    }
 }
+
 extension FacecamVC: OTResizableViewDelegate {
     
     func tapBegin(_ resizableView: OTResizableView) {
