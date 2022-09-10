@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5CD29EE0646F6404B57F1697 /* Pods_stream_recorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88379963D4AC1A4E3DE38446 /* Pods_stream_recorder.framework */; };
+		936064C228CC4123009A5819 /* ImageTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064BF28CC4122009A5819 /* ImageTransform.swift */; };
+		936064C328CC4123009A5819 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064C028CC4123009A5819 /* VideoConfig.swift */; };
+		936064C428CC4123009A5819 /* StreamerFacecam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064C128CC4123009A5819 /* StreamerFacecam.swift */; };
+		936064D228CC45EF009A5819 /* FaceCamFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936064D128CC45EF009A5819 /* FaceCamFW.framework */; };
 		A31361EE27FDF94E006CCBD5 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31361ED27FDF94E006CCBD5 /* FileService.swift */; };
 		A31361F627FDFD6A006CCBD5 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31361F527FDFD6A006CCBD5 /* ReplayKit.framework */; };
 		A31361F927FDFD6A006CCBD5 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31361F827FDFD6A006CCBD5 /* SampleHandler.swift */; };
@@ -43,9 +47,6 @@
 		A36CAAF828087CDB00409441 /* ThumbnailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAF228087CDB00409441 /* ThumbnailsManager.swift */; };
 		A36CAAF928087CDB00409441 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAF328087CDB00409441 /* TimeView.swift */; };
 		A36CAAFF2808806900409441 /* Toaster in Frameworks */ = {isa = PBXBuildFile; productRef = A36CAAFE2808806900409441 /* Toaster */; };
-		A36CAB01280882B200409441 /* StreamerFacecam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB00280882B200409441 /* StreamerFacecam.swift */; };
-		A36CAB04280886A200409441 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB03280886A200409441 /* VideoConfig.swift */; };
-		A36CAB08280887C500409441 /* ImageTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB07280887C500409441 /* ImageTransform.swift */; };
 		A36CAB0A28088A6800409441 /* CameraPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB0928088A6800409441 /* CameraPreviewLayer.swift */; };
 		A36CAB0E28088A9C00409441 /* OTResizableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB0C28088A9C00409441 /* OTResizableView.swift */; };
 		A36CAB0F28088A9C00409441 /* OTGripPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB0D28088A9C00409441 /* OTGripPointView.swift */; };
@@ -215,6 +216,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9360647028CC322A009A5819 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A313621327FDFD6A006CCBD5 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +242,11 @@
 
 /* Begin PBXFileReference section */
 		88379963D4AC1A4E3DE38446 /* Pods_stream_recorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stream_recorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9360646828CC3159009A5819 /* FaceCameFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaceCameFrameWork.framework; path = "../../Library/Developer/Xcode/DerivedData/FaceCameFrameWork-dpdxdmfettozcjboqeyiwseratpq/Build/Products/Debug-iphonesimulator/FaceCameFrameWork.framework"; sourceTree = "<group>"; };
+		936064BF28CC4122009A5819 /* ImageTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransform.swift; sourceTree = "<group>"; };
+		936064C028CC4123009A5819 /* VideoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConfig.swift; sourceTree = "<group>"; };
+		936064C128CC4123009A5819 /* StreamerFacecam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamerFacecam.swift; sourceTree = "<group>"; };
+		936064D128CC45EF009A5819 /* FaceCamFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FaceCamFW.framework; sourceTree = "<group>"; };
 		9B0B6523E3FD5D6798117003 /* Pods-stream_recorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stream_recorder.debug.xcconfig"; path = "Target Support Files/Pods-stream_recorder/Pods-stream_recorder.debug.xcconfig"; sourceTree = "<group>"; };
 		A31361ED27FDF94E006CCBD5 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		A31361EF27FDFCB6006CCBD5 /* stream_recorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stream_recorder.entitlements; sourceTree = "<group>"; };
@@ -263,9 +279,6 @@
 		A36CAAF128087CDB00409441 /* VideoRecordSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRecordSlider.swift; sourceTree = "<group>"; };
 		A36CAAF228087CDB00409441 /* ThumbnailsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailsManager.swift; sourceTree = "<group>"; };
 		A36CAAF328087CDB00409441 /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
-		A36CAB00280882B200409441 /* StreamerFacecam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerFacecam.swift; sourceTree = "<group>"; };
-		A36CAB03280886A200409441 /* VideoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConfig.swift; sourceTree = "<group>"; };
-		A36CAB07280887C500409441 /* ImageTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransform.swift; sourceTree = "<group>"; };
 		A36CAB0928088A6800409441 /* CameraPreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreviewLayer.swift; sourceTree = "<group>"; };
 		A36CAB0C28088A9C00409441 /* OTResizableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTResizableView.swift; sourceTree = "<group>"; };
 		A36CAB0D28088A9C00409441 /* OTGripPointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTGripPointView.swift; sourceTree = "<group>"; };
@@ -458,6 +471,7 @@
 				A378480D2800941E001C9EC9 /* libc++.tbd in Frameworks */,
 				A36CAB1228088D7000409441 /* DeviceGuru in Frameworks */,
 				A3784830280163DB001C9EC9 /* libcrypto.xcframework in Frameworks */,
+				936064D228CC45EF009A5819 /* FaceCamFW.framework in Frameworks */,
 				A3342C0D280BF6C70015ACDD /* SwiftMessages in Frameworks */,
 				A3342C04280BF5CA0015ACDD /* CocoaLumberjackSwift in Frameworks */,
 				A36CAAE928085F1D00409441 /* PixelSDK in Frameworks */,
@@ -556,6 +570,7 @@
 			children = (
 				A36CAB022808868500409441 /* FacecamSetup */,
 				A36CAAEB2808790200409441 /* FacecamVC.swift */,
+				936064D128CC45EF009A5819 /* FaceCamFW.framework */,
 			);
 			path = FacecamVC;
 			sourceTree = "<group>";
@@ -577,9 +592,9 @@
 			isa = PBXGroup;
 			children = (
 				A36CAB0928088A6800409441 /* CameraPreviewLayer.swift */,
-				A36CAB07280887C500409441 /* ImageTransform.swift */,
-				A36CAB03280886A200409441 /* VideoConfig.swift */,
-				A36CAB00280882B200409441 /* StreamerFacecam.swift */,
+				936064BF28CC4122009A5819 /* ImageTransform.swift */,
+				936064C128CC4123009A5819 /* StreamerFacecam.swift */,
+				936064C028CC4123009A5819 /* VideoConfig.swift */,
 			);
 			path = FacecamSetup;
 			sourceTree = "<group>";
@@ -1236,6 +1251,7 @@
 		AF8907894168341A3AF00F6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9360646828CC3159009A5819 /* FaceCameFrameWork.framework */,
 				A378482B280163DB001C9EC9 /* libcrypto.xcframework */,
 				A3784829280163DB001C9EC9 /* librist.xcframework */,
 				A378482A280163DB001C9EC9 /* libsrt.xcframework */,
@@ -1363,6 +1379,7 @@
 				C321940827F5EE0B003067B4 /* Resources */,
 				A313621327FDFD6A006CCBD5 /* Embed App Extensions */,
 				111A5AA1D22B08CD1070CC89 /* [CP] Embed Pods Frameworks */,
+				9360647028CC322A009A5819 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1588,7 +1605,6 @@
 				A3E194B127FAFECC004E894F /* PremiumCell.swift in Sources */,
 				A3B5C86627FB6C5300BDE4F9 /* StreamScreenCell.swift in Sources */,
 				A3342C0F280BF6DD0015ACDD /* SilenceGenerator.swift in Sources */,
-				A36CAB04280886A200409441 /* VideoConfig.swift in Sources */,
 				A381632227FA08FA003E3F1A /* HomeEditCell.swift in Sources */,
 				A38162DE27F9E8FB003E3F1A /* UIViewController+Ext.swift in Sources */,
 				A36CAAEC2808790200409441 /* FacecamVC.swift in Sources */,
@@ -1598,10 +1614,12 @@
 				A3B5C85B27FB600F00BDE4F9 /* RecordConfigCell.swift in Sources */,
 				A3E194A827FAF5D6004E894F /* HelpCell.swift in Sources */,
 				A390CDD627FC831900CA8CC1 /* DarkView.swift in Sources */,
+				936064C428CC4123009A5819 /* StreamerFacecam.swift in Sources */,
 				A3342C08280BF60C0015ACDD /* SettingsKeys.swift in Sources */,
 				C321941227F5EE0B003067B4 /* ViewController.swift in Sources */,
 				A381633127FA22F8003E3F1A /* SettingPremiumCell.swift in Sources */,
 				A38162F627F9EEA2003E3F1A /* BaseTabBarVC.swift in Sources */,
+				936064C328CC4123009A5819 /* VideoConfig.swift in Sources */,
 				A3B5C85227FB41BE00BDE4F9 /* CountdownService.swift in Sources */,
 				C39ED613280FB410008D54A6 /* NewBroadCollectionViewCell.swift in Sources */,
 				A390CDDB27FC831900CA8CC1 /* TriangleView.swift in Sources */,
@@ -1646,6 +1664,7 @@
 				A36CAB0A28088A6800409441 /* CameraPreviewLayer.swift in Sources */,
 				A38162F127F9E9F1003E3F1A /* SOTabBar.swift in Sources */,
 				A381632627FA0909003E3F1A /* HomeFaceCamCell.swift in Sources */,
+				936064C228CC4123009A5819 /* ImageTransform.swift in Sources */,
 				A38162D827F9E8FB003E3F1A /* UITextField+Ext.swift in Sources */,
 				C39ED61A280FB98C008D54A6 /* Alert.swift in Sources */,
 				A390CDE327FCA81800CA8CC1 /* EndStreamAlert.swift in Sources */,
@@ -1663,7 +1682,6 @@
 				A38162D427F9E8FB003E3F1A /* UIApplication+Ext.swift in Sources */,
 				A390CDD827FC831900CA8CC1 /* OptionsView.swift in Sources */,
 				A3B5C86027FB649300BDE4F9 /* StreamVC.swift in Sources */,
-				A36CAB08280887C500409441 /* ImageTransform.swift in Sources */,
 				A38162D027F9E8FB003E3F1A /* UILabel+Ext.swift in Sources */,
 				A3B5C85727FB5F3500BDE4F9 /* RecordConfigVC.swift in Sources */,
 				A381633927FA2314003E3F1A /* SettingItemCell.swift in Sources */,
@@ -1677,7 +1695,6 @@
 				A390CDE527FCB78300CA8CC1 /* ConnectStreamAlert.swift in Sources */,
 				A38162DD27F9E8FB003E3F1A /* Number+Ext.swift in Sources */,
 				A38162D627F9E8FB003E3F1A /* UIImage+Ext.swift in Sources */,
-				A36CAB01280882B200409441 /* StreamerFacecam.swift in Sources */,
 				A390CDD327FC831900CA8CC1 /* TooltipsView.swift in Sources */,
 				A36CAAF428087CDB00409441 /* StartIndicator.swift in Sources */,
 				A381633D27FA2B64003E3F1A /* UIDevice+Ext.swift in Sources */,
@@ -1724,7 +1741,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96TB762PLM;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = broadcase_stream_recorderSetupUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Recorder";
@@ -1736,7 +1753,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "beelab.stream.xrecorder.broadcase-stream-recorderSetupUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "beelab222.stream.xrecorder.broadcase-stream-recorderSetupUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1750,7 +1767,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96TB762PLM;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = broadcase_stream_recorderSetupUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Recorder";
@@ -1762,7 +1779,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "beelab.stream.xrecorder.broadcase-stream-recorderSetupUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "beelab222.stream.xrecorder.broadcase-stream-recorderSetupUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1777,7 +1794,7 @@
 				CODE_SIGN_ENTITLEMENTS = broadcase_stream_recorder/broadcase_stream_recorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96TB762PLM;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = broadcase_stream_recorder/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Recorder";
@@ -1789,7 +1806,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "beelab.stream.xrecorder.broadcase-stream-recorder";
+				PRODUCT_BUNDLE_IDENTIFIER = "beelab222.stream.xrecorder.broadcase-stream-recorder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1805,7 +1822,7 @@
 				CODE_SIGN_ENTITLEMENTS = broadcase_stream_recorder/broadcase_stream_recorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96TB762PLM;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = broadcase_stream_recorder/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Recorder";
@@ -1817,7 +1834,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "beelab.stream.xrecorder.broadcase-stream-recorder";
+				PRODUCT_BUNDLE_IDENTIFIER = "beelab222.stream.xrecorder.broadcase-stream-recorder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1951,7 +1968,12 @@
 				CODE_SIGN_ENTITLEMENTS = stream_recorder/stream_recorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96TB762PLM;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/stream_recorder",
+					"$(PROJECT_DIR)/stream_recorder/ViewControllers/Home/FacecamVC",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = stream_recorder/Managers/Plists/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Recorder";
@@ -1972,7 +1994,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
-				PRODUCT_BUNDLE_IDENTIFIER = beelab.stream.xrecorder;
+				PRODUCT_BUNDLE_IDENTIFIER = beelab222.stream.xrecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "stream_recorder-Bridging-Header.h";
@@ -1991,7 +2013,12 @@
 				CODE_SIGN_ENTITLEMENTS = stream_recorder/stream_recorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96TB762PLM;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/stream_recorder",
+					"$(PROJECT_DIR)/stream_recorder/ViewControllers/Home/FacecamVC",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = stream_recorder/Managers/Plists/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Recorder";
@@ -2012,7 +2039,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
-				PRODUCT_BUNDLE_IDENTIFIER = beelab.stream.xrecorder;
+				PRODUCT_BUNDLE_IDENTIFIER = beelab222.stream.xrecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "stream_recorder-Bridging-Header.h";

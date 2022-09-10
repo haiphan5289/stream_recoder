@@ -1,6 +1,7 @@
 import CoreImage
 import CocoaLumberjackSwift
 import AVFoundation
+import FaceCamFW
 
 class StreamerSingleCam: Streamer {
     

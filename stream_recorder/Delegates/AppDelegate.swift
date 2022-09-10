@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import SwiftyStoreKit
 import GoogleMobileAds
+import FaceCamFW
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.isIdleTimerDisabled = true
+        
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "67d2e251d19dd5f5690b3c18b677cb28" ]
         GADMobileAds.sharedInstance().start(completionHandler: nil)

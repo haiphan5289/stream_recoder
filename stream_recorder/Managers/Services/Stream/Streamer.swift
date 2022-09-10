@@ -2,6 +2,7 @@ import AVFoundation
 import CoreImage
 import CocoaLumberjackSwift
 import UIKit
+import FaceCamFW
 
 enum StreamerError: Error {
     case DeviceNotAuthorized
@@ -213,7 +214,7 @@ AVCapturePhotoCaptureDelegate, StreamerEngineDelegate {
     }
     
     // MARK: Capture setup
-    func startCapture(startAudio: Bool, startVideo: Bool) throws {
+    public func startCapture(startAudio: Bool, startVideo: Bool) throws {
         guard delegate != nil else {
             throw StreamerError.NoDelegate
         }
@@ -690,7 +691,7 @@ AVCapturePhotoCaptureDelegate, StreamerEngineDelegate {
         return false
     }
     
-    func stopCapture() {
+    public func stopCapture() {
         DDLogVerbose("stopCapture")
         
         workQueue.async {
@@ -894,7 +895,7 @@ AVCapturePhotoCaptureDelegate, StreamerEngineDelegate {
     }
     
     // MARK: mp4 record
-    func startRecord() {
+    public func startRecord() {
         let fileUrl = getFileUrl(mode: recordMode)
         workQueue.async {
             if fileUrl == nil || !self.engine.startFileWriter(fileUrl, mode: self.recordMode) {
@@ -903,7 +904,7 @@ AVCapturePhotoCaptureDelegate, StreamerEngineDelegate {
         }
     }
 
-    func stopRecord(restart: Bool = false) {
+    public func stopRecord(restart: Bool = false) {
         DDLogVerbose("stopRecord")
         if (restart) {
             let nextUrl = getFileUrl(mode: recordMode)
@@ -913,7 +914,7 @@ AVCapturePhotoCaptureDelegate, StreamerEngineDelegate {
         }
     }
     
-    func getFileUrl(mode: ConnectionMode) -> URL? {
+    public func getFileUrl(mode: ConnectionMode) -> URL? {
         guard let documents = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
             DDLogError("Cant' get document directory")
             return nil

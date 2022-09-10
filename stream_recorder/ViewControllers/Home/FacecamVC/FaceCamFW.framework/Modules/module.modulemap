@@ -1,0 +1,11 @@
+framework module FaceCamFW {
+  umbrella header "FaceCamFW.h"
+
+  export *
+  module * { export * }
+}
+
+module FaceCamFW.Swift {
+    header "FaceCamFW-Swift.h"
+    requires objc
+}
