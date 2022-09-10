@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="WorkSans-Regular.ttf">
+            <string>WorkSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PlatformCell" rowHeight="101" id="SQn-ZJ-D2g" customClass="PlatformCell" customModule="stream_recorder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="101"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SQn-ZJ-D2g" id="C7u-gs-lFj">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGv-Py-Q4a">
+                        <rect key="frame" x="0.0" y="8" width="383" height="80"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBz-ag-D2b">
+                                <rect key="frame" x="16" y="16" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IBz-ag-D2b" secondAttribute="height" id="3f6-Iv-vHi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAu-ys-ils">
+                                <rect key="frame" x="76" y="30" width="255" height="20"/>
+                                <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCheck" translatesAutoresizingMaskIntoConstraints="NO" id="cgZ-R5-exE">
+                                <rect key="frame" x="343" y="28" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Ret-1Y-i3a"/>
+                                    <constraint firstAttribute="height" constant="24" id="bLl-PG-h4D"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DAu-ys-ils" firstAttribute="centerY" secondItem="eGv-Py-Q4a" secondAttribute="centerY" id="8bs-cu-MFE"/>
+                            <constraint firstAttribute="height" constant="80" id="Cpc-SI-8N1"/>
+                            <constraint firstItem="IBz-ag-D2b" firstAttribute="leading" secondItem="eGv-Py-Q4a" secondAttribute="leading" constant="16" id="RLr-Cv-jru"/>
+                            <constraint firstAttribute="bottom" secondItem="IBz-ag-D2b" secondAttribute="bottom" constant="16" id="UUf-OE-qEH"/>
+                            <constraint firstItem="IBz-ag-D2b" firstAttribute="top" secondItem="eGv-Py-Q4a" secondAttribute="top" constant="16" id="Vzd-qb-J5E"/>
+                            <constraint firstItem="DAu-ys-ils" firstAttribute="leading" secondItem="IBz-ag-D2b" secondAttribute="trailing" constant="12" id="lIB-gf-isv"/>
+                            <constraint firstItem="cgZ-R5-exE" firstAttribute="leading" secondItem="DAu-ys-ils" secondAttribute="trailing" constant="12" id="nCl-d1-208"/>
+                            <constraint firstItem="cgZ-R5-exE" firstAttribute="centerY" secondItem="eGv-Py-Q4a" secondAttribute="centerY" id="t7r-t7-Juw"/>
+                            <constraint firstAttribute="trailing" secondItem="cgZ-R5-exE" secondAttribute="trailing" constant="16" id="vam-o8-iT6"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="24"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eGv-Py-Q4a" firstAttribute="leading" secondItem="C7u-gs-lFj" secondAttribute="leading" id="6lC-uY-w9C"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eGv-Py-Q4a" secondAttribute="bottom" constant="8" id="aae-Z0-BHT"/>
+                    <constraint firstItem="eGv-Py-Q4a" firstAttribute="top" secondItem="C7u-gs-lFj" secondAttribute="top" constant="8" id="bJD-KX-rYg"/>
+                    <constraint firstAttribute="trailing" secondItem="eGv-Py-Q4a" secondAttribute="trailing" id="fgZ-bG-Umc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="13m-TR-2TI"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgCheck" destination="cgZ-R5-exE" id="VaP-ou-eNU"/>
+                <outlet property="imgIcon" destination="IBz-ag-D2b" id="WZE-17-OQ3"/>
+                <outlet property="lblTitle" destination="DAu-ys-ils" id="SbE-oN-tNV"/>
+                <outlet property="vContent" destination="eGv-Py-Q4a" id="Upe-HN-7TP"/>
+            </connections>
+            <point key="canvasLocation" x="183.33333333333334" y="139.62053571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icCheck" width="24" height="24"/>
+    </resources>
+</document>

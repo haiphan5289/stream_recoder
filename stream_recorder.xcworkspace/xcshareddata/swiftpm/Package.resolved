@@ -1,0 +1,77 @@
+{
+  "pins" : [
+    {
+      "identity" : "broadcastwriter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/romiroma/BroadcastWriter",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ef52e6f09f12c60bcca8544934799a5863947a7f"
+      }
+    },
+    {
+      "identity" : "cocoalumberjack",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
+      "state" : {
+        "revision" : "80ada1f753b0d53d9b57c465936a7c4169375002",
+        "version" : "3.7.4"
+      }
+    },
+    {
+      "identity" : "deviceguru",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/InderKumarRathore/DeviceGuru",
+      "state" : {
+        "branch" : "master",
+        "revision" : "57e4329dad6aa9c6d9a3ea4d151625c8469c6eed"
+      }
+    },
+    {
+      "identity" : "gpuimage3",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GottaYotta/GPUImage3.git",
+      "state" : {
+        "revision" : "72374ffd135185b5bf83cde7cf4177242d06724d",
+        "version" : "3.1.1"
+      }
+    },
+    {
+      "identity" : "pixelsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GottaYotta/PixelSDK.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "cbe04a0fab1ff104a86aae0f5ab03495270f8f92"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+        "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "swiftmessages",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftKickMobile/SwiftMessages",
+      "state" : {
+        "revision" : "b29dd21090b708aa0ae9ecbaf6e2d0487028dc3f",
+        "version" : "9.0.6"
+      }
+    },
+    {
+      "identity" : "toaster",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devxoul/Toaster.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e291374fda2be69bed0330e4346d5fb2af08f4ba"
+      }
+    }
+  ],
+  "version" : 2
+}
