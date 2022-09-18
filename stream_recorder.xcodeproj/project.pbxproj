@@ -14,7 +14,12 @@
 		936064D928CC7566009A5819 /* CheckVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936064D628CC7566009A5819 /* CheckVC.xib */; };
 		936064DA28CC7566009A5819 /* CheckVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064D728CC7566009A5819 /* CheckVM.swift */; };
 		936064DB28CC7566009A5819 /* CheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936064D828CC7566009A5819 /* CheckVC.swift */; };
-		936064F828CC86EB009A5819 /* FaceCamFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936064F728CC86EB009A5819 /* FaceCamFW.framework */; };
+		93C9376828D708C300B0F5BC /* StartIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9376228D708C300B0F5BC /* StartIndicator.swift */; };
+		93C9376928D708C300B0F5BC /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9376328D708C300B0F5BC /* VideoHelper.swift */; };
+		93C9376A28D708C300B0F5BC /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9376428D708C300B0F5BC /* ProgressIndicator.swift */; };
+		93C9376B28D708C300B0F5BC /* VideoRecordSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9376528D708C300B0F5BC /* VideoRecordSlider.swift */; };
+		93C9376C28D708C300B0F5BC /* ThumbnailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9376628D708C300B0F5BC /* ThumbnailsManager.swift */; };
+		93C9376D28D708C300B0F5BC /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9376728D708C300B0F5BC /* TimeView.swift */; };
 		A31361EE27FDF94E006CCBD5 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31361ED27FDF94E006CCBD5 /* FileService.swift */; };
 		A31361F627FDFD6A006CCBD5 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31361F527FDFD6A006CCBD5 /* ReplayKit.framework */; };
 		A31361F927FDFD6A006CCBD5 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31361F827FDFD6A006CCBD5 /* SampleHandler.swift */; };
@@ -43,12 +48,6 @@
 		A3636EFE27FB7FA70014844F /* PlatformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3636EFC27FB7FA70014844F /* PlatformCell.xib */; };
 		A36CAAE928085F1D00409441 /* PixelSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A36CAAE828085F1D00409441 /* PixelSDK */; };
 		A36CAAEC2808790200409441 /* FacecamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAEB2808790200409441 /* FacecamVC.swift */; };
-		A36CAAF428087CDB00409441 /* StartIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAEE28087CDB00409441 /* StartIndicator.swift */; };
-		A36CAAF528087CDB00409441 /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAEF28087CDB00409441 /* VideoHelper.swift */; };
-		A36CAAF628087CDB00409441 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAF028087CDB00409441 /* ProgressIndicator.swift */; };
-		A36CAAF728087CDB00409441 /* VideoRecordSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAF128087CDB00409441 /* VideoRecordSlider.swift */; };
-		A36CAAF828087CDB00409441 /* ThumbnailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAF228087CDB00409441 /* ThumbnailsManager.swift */; };
-		A36CAAF928087CDB00409441 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAAF328087CDB00409441 /* TimeView.swift */; };
 		A36CAAFF2808806900409441 /* Toaster in Frameworks */ = {isa = PBXBuildFile; productRef = A36CAAFE2808806900409441 /* Toaster */; };
 		A36CAB0A28088A6800409441 /* CameraPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB0928088A6800409441 /* CameraPreviewLayer.swift */; };
 		A36CAB0E28088A9C00409441 /* OTResizableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CAB0C28088A9C00409441 /* OTResizableView.swift */; };
@@ -252,7 +251,12 @@
 		936064D628CC7566009A5819 /* CheckVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckVC.xib; sourceTree = "<group>"; };
 		936064D728CC7566009A5819 /* CheckVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVM.swift; sourceTree = "<group>"; };
 		936064D828CC7566009A5819 /* CheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVC.swift; sourceTree = "<group>"; };
-		936064F728CC86EB009A5819 /* FaceCamFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FaceCamFW.framework; sourceTree = "<group>"; };
+		93C9376228D708C300B0F5BC /* StartIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartIndicator.swift; sourceTree = "<group>"; };
+		93C9376328D708C300B0F5BC /* VideoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
+		93C9376428D708C300B0F5BC /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
+		93C9376528D708C300B0F5BC /* VideoRecordSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRecordSlider.swift; sourceTree = "<group>"; };
+		93C9376628D708C300B0F5BC /* ThumbnailsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailsManager.swift; sourceTree = "<group>"; };
+		93C9376728D708C300B0F5BC /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		9B0B6523E3FD5D6798117003 /* Pods-stream_recorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stream_recorder.debug.xcconfig"; path = "Target Support Files/Pods-stream_recorder/Pods-stream_recorder.debug.xcconfig"; sourceTree = "<group>"; };
 		A31361ED27FDF94E006CCBD5 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		A31361EF27FDFCB6006CCBD5 /* stream_recorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stream_recorder.entitlements; sourceTree = "<group>"; };
@@ -279,12 +283,6 @@
 		A3636EFB27FB7FA70014844F /* PlatformCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCell.swift; sourceTree = "<group>"; };
 		A3636EFC27FB7FA70014844F /* PlatformCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlatformCell.xib; sourceTree = "<group>"; };
 		A36CAAEB2808790200409441 /* FacecamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacecamVC.swift; sourceTree = "<group>"; };
-		A36CAAEE28087CDB00409441 /* StartIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartIndicator.swift; sourceTree = "<group>"; };
-		A36CAAEF28087CDB00409441 /* VideoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
-		A36CAAF028087CDB00409441 /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
-		A36CAAF128087CDB00409441 /* VideoRecordSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRecordSlider.swift; sourceTree = "<group>"; };
-		A36CAAF228087CDB00409441 /* ThumbnailsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailsManager.swift; sourceTree = "<group>"; };
-		A36CAAF328087CDB00409441 /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		A36CAB0928088A6800409441 /* CameraPreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreviewLayer.swift; sourceTree = "<group>"; };
 		A36CAB0C28088A9C00409441 /* OTResizableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTResizableView.swift; sourceTree = "<group>"; };
 		A36CAB0D28088A9C00409441 /* OTGripPointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTGripPointView.swift; sourceTree = "<group>"; };
@@ -477,7 +475,6 @@
 				A378480D2800941E001C9EC9 /* libc++.tbd in Frameworks */,
 				A36CAB1228088D7000409441 /* DeviceGuru in Frameworks */,
 				A3784830280163DB001C9EC9 /* libcrypto.xcframework in Frameworks */,
-				936064F828CC86EB009A5819 /* FaceCamFW.framework in Frameworks */,
 				A3342C0D280BF6C70015ACDD /* SwiftMessages in Frameworks */,
 				A3342C04280BF5CA0015ACDD /* CocoaLumberjackSwift in Frameworks */,
 				A36CAAE928085F1D00409441 /* PixelSDK in Frameworks */,
@@ -498,6 +495,19 @@
 				936064D828CC7566009A5819 /* CheckVC.swift */,
 			);
 			path = Check;
+			sourceTree = "<group>";
+		};
+		93C9376128D708C300B0F5BC /* VideoRecordSlider */ = {
+			isa = PBXGroup;
+			children = (
+				93C9376228D708C300B0F5BC /* StartIndicator.swift */,
+				93C9376328D708C300B0F5BC /* VideoHelper.swift */,
+				93C9376428D708C300B0F5BC /* ProgressIndicator.swift */,
+				93C9376528D708C300B0F5BC /* VideoRecordSlider.swift */,
+				93C9376628D708C300B0F5BC /* ThumbnailsManager.swift */,
+				93C9376728D708C300B0F5BC /* TimeView.swift */,
+			);
+			path = VideoRecordSlider;
 			sourceTree = "<group>";
 		};
 		A31361EC27FDF935006CCBD5 /* Services */ = {
@@ -586,22 +596,8 @@
 			children = (
 				A36CAB022808868500409441 /* FacecamSetup */,
 				A36CAAEB2808790200409441 /* FacecamVC.swift */,
-				936064F728CC86EB009A5819 /* FaceCamFW.framework */,
 			);
 			path = FacecamVC;
-			sourceTree = "<group>";
-		};
-		A36CAAED28087CDB00409441 /* VideoRecordSlider */ = {
-			isa = PBXGroup;
-			children = (
-				A36CAAEE28087CDB00409441 /* StartIndicator.swift */,
-				A36CAAEF28087CDB00409441 /* VideoHelper.swift */,
-				A36CAAF028087CDB00409441 /* ProgressIndicator.swift */,
-				A36CAAF128087CDB00409441 /* VideoRecordSlider.swift */,
-				A36CAAF228087CDB00409441 /* ThumbnailsManager.swift */,
-				A36CAAF328087CDB00409441 /* TimeView.swift */,
-			);
-			path = VideoRecordSlider;
 			sourceTree = "<group>";
 		};
 		A36CAB022808868500409441 /* FacecamSetup */ = {
@@ -809,8 +805,8 @@
 			children = (
 				A35749B8280A9A4800A12484 /* ProgressCircle */,
 				A36CAB0B28088A9C00409441 /* OTResizableView */,
-				A36CAAED28087CDB00409441 /* VideoRecordSlider */,
 				A390CDC927FC831900CA8CC1 /* OptionsView */,
+				93C9376128D708C300B0F5BC /* VideoRecordSlider */,
 				A381632827FA1BEE003E3F1A /* Alerts */,
 				A38162EA27F9E9D6003E3F1A /* CustomTabBar */,
 			);
@@ -1613,13 +1609,11 @@
 			files = (
 				A381633527FA2308003E3F1A /* SettingStorageCell.swift in Sources */,
 				A3E69220284A4E580000779C /* BaseRootTabbar.swift in Sources */,
-				A36CAAF728087CDB00409441 /* VideoRecordSlider.swift in Sources */,
 				A3F26BFE27FAF30100158F5D /* HelpVC.swift in Sources */,
 				A3342BFA280BF5300015ACDD /* StreamerSingleCam.swift in Sources */,
 				936064DA28CC7566009A5819 /* CheckVM.swift in Sources */,
 				A390CDBE27FC7E3300CA8CC1 /* StreamConfigVC.swift in Sources */,
 				A35749B7280A990300A12484 /* ProgressVideoAlert.swift in Sources */,
-				A36CAAF528087CDB00409441 /* VideoHelper.swift in Sources */,
 				A35749BD280ABE7C00A12484 /* ImagePicker.swift in Sources */,
 				A3E194B127FAFECC004E894F /* PremiumCell.swift in Sources */,
 				A3B5C86627FB6C5300BDE4F9 /* StreamScreenCell.swift in Sources */,
@@ -1631,12 +1625,15 @@
 				C39ED616280FB4A8008D54A6 /* RemoteConfigManager.swift in Sources */,
 				A37BE44727FF692700D07B43 /* StreamCameraVC.swift in Sources */,
 				A3B5C85B27FB600F00BDE4F9 /* RecordConfigCell.swift in Sources */,
+				93C9376828D708C300B0F5BC /* StartIndicator.swift in Sources */,
+				93C9376928D708C300B0F5BC /* VideoHelper.swift in Sources */,
 				A3E194A827FAF5D6004E894F /* HelpCell.swift in Sources */,
 				A390CDD627FC831900CA8CC1 /* DarkView.swift in Sources */,
 				936064C428CC4123009A5819 /* StreamerFacecam.swift in Sources */,
 				A3342C08280BF60C0015ACDD /* SettingsKeys.swift in Sources */,
 				C321941227F5EE0B003067B4 /* ViewController.swift in Sources */,
 				A381633127FA22F8003E3F1A /* SettingPremiumCell.swift in Sources */,
+				93C9376B28D708C300B0F5BC /* VideoRecordSlider.swift in Sources */,
 				A38162F627F9EEA2003E3F1A /* BaseTabBarVC.swift in Sources */,
 				936064C328CC4123009A5819 /* VideoConfig.swift in Sources */,
 				A3B5C85227FB41BE00BDE4F9 /* CountdownService.swift in Sources */,
@@ -1675,13 +1672,14 @@
 				A38162E627F9E925003E3F1A /* Utilities.swift in Sources */,
 				A38162FF27F9EF8B003E3F1A /* VideoVC.swift in Sources */,
 				C39ED610280FB410008D54A6 /* PremiumVC+Extensions.swift in Sources */,
-				A36CAAF628087CDB00409441 /* ProgressIndicator.swift in Sources */,
 				A390CDBA27FC5B8000CA8CC1 /* SourceListVC.swift in Sources */,
 				A38162EF27F9E9F1003E3F1A /* SOTabBarController.swift in Sources */,
 				A3B5C85427FB5B8A00BDE4F9 /* RecordingSavedAlert.swift in Sources */,
 				C321941027F5EE0B003067B4 /* SceneDelegate.swift in Sources */,
+				93C9376A28D708C300B0F5BC /* ProgressIndicator.swift in Sources */,
 				A381632A27FA1C1E003E3F1A /* ComingFeatureAlert.swift in Sources */,
 				A36CAB0A28088A6800409441 /* CameraPreviewLayer.swift in Sources */,
+				93C9376C28D708C300B0F5BC /* ThumbnailsManager.swift in Sources */,
 				A38162F127F9E9F1003E3F1A /* SOTabBar.swift in Sources */,
 				A381632627FA0909003E3F1A /* HomeFaceCamCell.swift in Sources */,
 				936064C228CC4123009A5819 /* ImageTransform.swift in Sources */,
@@ -1705,18 +1703,16 @@
 				A38162D027F9E8FB003E3F1A /* UILabel+Ext.swift in Sources */,
 				A3B5C85727FB5F3500BDE4F9 /* RecordConfigVC.swift in Sources */,
 				A381633927FA2314003E3F1A /* SettingItemCell.swift in Sources */,
-				A36CAAF928087CDB00409441 /* TimeView.swift in Sources */,
 				A38162F227F9E9F1003E3F1A /* SOTabBarSetting.swift in Sources */,
 				A37848132800AA9A001C9EC9 /* VideoPreviewerVC.swift in Sources */,
 				A38162E527F9E925003E3F1A /* Constants.swift in Sources */,
 				A38162D527F9E8FB003E3F1A /* UITextView+Ext.swift in Sources */,
 				A38162DB27F9E8FB003E3F1A /* String+Ext.swift in Sources */,
-				A36CAAF828087CDB00409441 /* ThumbnailsManager.swift in Sources */,
+				93C9376D28D708C300B0F5BC /* TimeView.swift in Sources */,
 				A390CDE527FCB78300CA8CC1 /* ConnectStreamAlert.swift in Sources */,
 				A38162DD27F9E8FB003E3F1A /* Number+Ext.swift in Sources */,
 				A38162D627F9E8FB003E3F1A /* UIImage+Ext.swift in Sources */,
 				A390CDD327FC831900CA8CC1 /* TooltipsView.swift in Sources */,
-				A36CAAF428087CDB00409441 /* StartIndicator.swift in Sources */,
 				A381633D27FA2B64003E3F1A /* UIDevice+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

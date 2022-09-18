@@ -14,4 +14,5 @@ target 'stream_recorder' do
     pod 'SwiftMessages'
     pod 'CHIPageControl/Jaloro'
     pod 'Google-Mobile-Ads-SDK'
+    pod 'FaceCamFW'
 end
