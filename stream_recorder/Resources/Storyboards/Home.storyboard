@@ -1231,7 +1231,7 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCQ-n1-Yb2" customClass="VideoRecordSlider" customModule="stream_recorder" customModuleProvider="target">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCQ-n1-Yb2">
                                         <rect key="frame" x="24" y="630" width="366" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1288,8 +1288,8 @@
                     </view>
                     <connections>
                         <outlet property="btnSave" destination="4Jt-mc-hQT" id="tWj-HF-Aei"/>
+                        <outlet property="contentVideo" destination="rCQ-n1-Yb2" id="Odx-fS-8Xg"/>
                         <outlet property="recordBtn" destination="VYd-lW-oUr" id="6BE-g4-OFP"/>
-                        <outlet property="videoRangeSlider" destination="rCQ-n1-Yb2" id="sUa-qp-FWe"/>
                         <outlet property="videoRecordView" destination="KjS-jA-dUC" id="X5b-OM-QI6"/>
                     </connections>
                 </viewController>

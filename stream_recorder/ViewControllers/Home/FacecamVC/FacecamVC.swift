@@ -18,7 +18,8 @@ class FacecamVC: UIViewController {
     @IBOutlet weak var videoRecordView: UIView!
     @IBOutlet weak var recordBtn: UIButton!
     @IBOutlet weak var btnSave: UIButton!
-    @IBOutlet weak var videoRangeSlider: VideoRecordSlider!
+    @IBOutlet weak var contentVideo: UIView!
+    private let videoRangeSlider: VideoRecordSlider = VideoRecordSlider()
     
     var videoURL: URL?
     private var isVideoInited: Bool = false
@@ -61,9 +62,19 @@ class FacecamVC: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.mainView = self
         
-        videoRangeSlider.delegate = self
-        displayUI()
-        recordButtonUI(state: 0)
+        //This is important
+        //Create FW and create View = code, donot must use sotryboard
+        // App will creash with bug "exc_bad_access (code=2, address=0x1f3cb31e0)" && exc_bad_instruction
+        contentVideo.addSubview(videoRangeSlider)
+        videoRangeSlider.translatesAutoresizingMaskIntoConstraints = false
+        videoRangeSlider.topAnchor.constraint(equalTo: contentVideo.topAnchor).isActive = true
+        videoRangeSlider.leftAnchor.constraint(equalTo: contentVideo.leftAnchor).isActive = true
+        videoRangeSlider.rightAnchor.constraint(equalTo: contentVideo.rightAnchor).isActive = true
+        videoRangeSlider.bottomAnchor.constraint(equalTo: contentVideo.bottomAnchor).isActive = true
+        self.displayUI()
+        self.recordButtonUI(state: 0)
+        self.videoRangeSlider.delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
